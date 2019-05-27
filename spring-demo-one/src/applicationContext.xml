@@ -18,6 +18,13 @@
     <bean id="myFortune"
     	  class="com.valtz.springcode.HappyFortuneService"
     ></bean>
+    
+    <!-- start setter dependency injection here -->
+    <bean id="cricketCoach"
+    	class="com.valtz.springcode.CricketCoach"
+    >
+    	<property name="theFortune" ref="myFortune"/>
+    </bean>
 
 </beans>
 
