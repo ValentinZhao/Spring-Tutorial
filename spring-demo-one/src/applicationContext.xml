@@ -23,7 +23,13 @@
     <bean id="cricketCoach"
     	class="com.valtz.springcode.CricketCoach"
     >
+    	<!-- When use property tags, name attributes will triggle Spring to use setters to inject -->
+    	<!-- set up setter injection -->
     	<property name="theFortune" ref="myFortune"/>
+    	
+    	<!-- set up literal values. WATCH OUT DIFFS IN ATTRIBUTES -->
+    	<property name="emailAddress" value="thebestcoach@gmail.com" />
+    	<property name="team" value="The-A-Team" />
     </bean>
 
 </beans>
