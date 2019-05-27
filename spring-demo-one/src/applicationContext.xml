@@ -7,7 +7,7 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	
+	<context:property-placeholder location="classpath:sport.properties"/>
     <!-- Define your beans here -->
     <bean id="myCoach"
     	  class="com.valtz.springcode.BaseballCoach"
@@ -28,8 +28,8 @@
     	<property name="theFortune" ref="myFortune"/>
     	
     	<!-- set up literal values. WATCH OUT DIFFS IN ATTRIBUTES -->
-    	<property name="emailAddress" value="thebestcoach@gmail.com" />
-    	<property name="team" value="The-A-Team" />
+    	<property name="emailAddress" value="${config.email}" />
+    	<property name="team" value="${config.team}" />
     </bean>
 
 </beans>
