@@ -7,12 +7,11 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- Use this to import some files -->
-	
-	<context:property-placeholder location="classpath:sport.properties"/>
     <!-- Define your beans here -->
+    <!-- use prototype scope makes every bean has a distinctive memory -->
     <bean id="myCoach"
     	  class="com.valtz.springcode.BaseballCoach"
+    	  scope="prototype"
     >
     	<constructor-arg ref="myFortune" />
     </bean>
@@ -21,19 +20,6 @@
     	  class="com.valtz.springcode.HappyFortuneService"
     ></bean>
     
-    <!-- start setter dependency injection here -->
-    <bean id="cricketCoach"
-    	class="com.valtz.springcode.CricketCoach"
-    >
-    	<!-- When use property tags, name attributes will triggle Spring to use setters to inject -->
-    	<!-- set up setter injection -->
-    	<property name="theFortune" ref="myFortune"/>
-    	
-    	<!-- set up literal values. WATCH OUT DIFFS IN ATTRIBUTES -->
-    	<property name="emailAddress" value="${config.email}" />
-    	<property name="team" value="${config.team}" />
-    </bean>
-
 </beans>
 
 
